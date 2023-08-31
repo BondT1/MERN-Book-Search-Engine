@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require('express');
 const path = require('path');
 
@@ -16,8 +15,6 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware
 });
-
-
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
