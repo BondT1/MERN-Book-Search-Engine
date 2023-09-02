@@ -7,7 +7,7 @@ import {
   Col
 } from 'react-bootstrap';
 
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { QUERY_ME } from '../utils/queries';
 import { REMOVE_BOOK} from '../utils/mutations'
 import { removeBookId } from '../utils/localStorage';
