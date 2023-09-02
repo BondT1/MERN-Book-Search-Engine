@@ -8,8 +8,10 @@ import {
   Row
 } from 'react-bootstrap';
 
+import { useMutation } from "@apollo/client"
+import { SAVE_BOOK } from '../utils/mutations';
 import Auth from '../utils/auth';
-import { saveBook, searchGoogleBooks } from '../utils/API';
+import { searchGoogleBooks } from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 
 const SearchBooks = () => {
@@ -50,6 +52,7 @@ const SearchBooks = () => {
         title: book.volumeInfo.title,
         description: book.volumeInfo.description,
         image: book.volumeInfo.imageLinks?.thumbnail || '',
+        link: book.volumeInfo.infoLink,
       }));
 
       setSearchedBooks(bookData);
@@ -58,6 +61,8 @@ const SearchBooks = () => {
       console.error(err);
     }
   };
+
+  const [saveBook, { error }] = useMutation(SAVE_BOOK);
 
   // create function to handle saving a book to our database
   const handleSaveBook = async (bookId) => {
@@ -72,9 +77,12 @@ const SearchBooks = () => {
     }
 
     try {
-      const response = await saveBook(bookToSave, token);
+      const { data } = await saveBook({
+        variables: { bookInput: bookToSave },
+      });
+      console.log(data);
 
-      if (!response.ok) {
+      if (error) {
         throw new Error('something went wrong!');
       }
 
@@ -130,6 +138,13 @@ const SearchBooks = () => {
                     <Card.Title>{book.title}</Card.Title>
                     <p className='small'>Authors: {book.authors}</p>
                     <Card.Text>{book.description}</Card.Text>
+                    <p>
+                      {" "}
+                      <a href={book.link} rel="noopener">
+                        {" "}
+                        Go to book {" "}
+                      </a>{" "}
+                    </p>
                     {Auth.loggedIn() && (
                       <Button
                         disabled={savedBookIds?.some((savedBookId) => savedBookId === book.bookId)}
