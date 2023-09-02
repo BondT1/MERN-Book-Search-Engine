@@ -9,10 +9,10 @@ export const GET_ME = gql`
       savdBooks {
         bookId
         authors
-        description
         image
-        link
+        description
         title
+        link
       }
     }
   }
