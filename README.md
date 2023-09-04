@@ -264,3 +264,49 @@ You are required to submit BOTH of the following for review:
 
 ---
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+
+## Description
+
+The aim of this project was to create an application that allows an avid reader to search for new books to read and keep a list of books to purchase. The book service engine is designed to create a user-friendly experience with an easy-to use user interface. The main activity was to refactor the functioning application from using a RESTful API to a GraphQL API built with Apollo Server
+
+The features used to create this project consist of:
+
+- React
+- Express
+- Apollo Server
+- GraphQL
+- Mongoose
+- MERN stack
+- Heroku 
+- MongoDB
+
+The deployed application can be viewed through this link - 
+
+## Installation
+
+To install the necessary packages, simply type 'npm run install' in your command line. 
+
+## Usage
+
+Type npm run start to start the application or click on the Heroku link above. 
+
+You will be met with the book search engine homepage with multiple options. 
+
+You are able to search for particular books with the search bar - clicking the links underneath the resulting book results will take you to the webpages of the googlebooks. 
+
+This application also allows you to sign up to an account and subsequently log in and log out of this account once the signup is complete. 
+
+Once logged in, you are able to save any particular books you search to your 'saved books' page which you can use to look at and easily purchase your favorite books. You can also remove any books from your 'saved books' at any time.
+
+![A screenshot of the deployed application](Assets/)
+
+## Credits
+
+N/A
+
+## License
+
+N/A
+
+
