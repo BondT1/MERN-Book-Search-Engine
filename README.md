@@ -42,6 +42,8 @@ WHEN the toggle is set to Signup
 THEN I am presented with three inputs for a username, an email address, and a password, and a signup button
 WHEN the toggle is set to Login
 THEN I am presented with two inputs for an email address and a password and login button
+
+HERE 
 WHEN I enter a valid email address and create a password and click on the signup button
 THEN my user account is created and I am logged in to the site
 WHEN I enter my account’s email address and password and click on the login button
